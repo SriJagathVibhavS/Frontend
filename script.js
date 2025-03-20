@@ -1,4 +1,3 @@
-
 const loginPage = document.getElementById('loginPage');
 const dataPage = document.getElementById('dataPage');
 const loginForm = document.getElementById('loginForm');
@@ -15,7 +14,7 @@ loginForm.addEventListener('submit', function (event) {
     const password = document.getElementById('password').value;
 
     
-    if (username === 'admin' && password === 'password') {
+    if (username === 'admin' && password === 'admin') {
         loginPage.classList.add('hidden');
         dataPage.classList.remove('hidden');
         loadData(); 
@@ -32,12 +31,21 @@ function loadData() {
         const li = document.createElement('li');
         li.textContent = item;
 
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.classList.add('edit');
+        editButton.addEventListener('click', () => {
+            editData(index);
+        });
+
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
+        deleteButton.classList.add('delete');
         deleteButton.addEventListener('click', () => {
             deleteData(index);
         });
 
+        li.appendChild(editButton);
         li.appendChild(deleteButton);
         dataList.appendChild(li);
     });
@@ -55,6 +63,17 @@ dataForm.addEventListener('submit', function (event) {
         loadData(); 
     }
 });
+
+
+function editData(index) {
+    const data = JSON.parse(localStorage.getItem('data')) || [];
+    const updatedData = prompt('Edit your data:', data[index]);
+    if (updatedData !== null) {
+        data[index] = updatedData.trim();
+        localStorage.setItem('data', JSON.stringify(data));
+        loadData(); 
+    }
+}
 
 
 function deleteData(index) {
