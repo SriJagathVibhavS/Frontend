@@ -1,14 +1,13 @@
-
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #86044b, #49729c);
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #333;
+    color: #080000;
 }
 
 .page {
@@ -25,19 +24,22 @@ body {
 }
 
 .container {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: rgba(119, 226, 248, 0.9);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(19, 1, 1, 0.2);
     width: 100%;
     max-width: 400px;
     text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(19, 1, 1, 0.2);
 }
 
 h1 {
     margin-bottom: 1.5rem;
-    font-size: 2rem;
-    color: #333;
+    font-size: 2.2rem;
+    color: #060101;
+    font-weight: 600;
 }
 
 form {
@@ -48,39 +50,44 @@ form {
 label {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
-    color: #555;
+    color: #080101;
     text-align: left;
+    font-weight: 500;
 }
 
 input[type="text"],
 input[type="password"] {
     padding: 0.75rem;
     margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
     font-size: 1rem;
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-    border-color: #6a11cb;
+    border-color: #720719;
+    box-shadow: 0 0 8px rgba(106, 17, 203, 0.3);
 }
 
 button {
     padding: 0.75rem;
-    background: #6a11cb;
+    background: #04631f;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-weight: 500;
 }
 
 button:hover {
-    background: #2575fc;
+    background: #25fc57;
+    transform: translateY(-2px);
 }
 
 .error {
@@ -97,15 +104,21 @@ button:hover {
 }
 
 #dataList li {
-    background: #f9f9f9;
-    padding: 0.75rem;
-    margin-bottom: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     animation: slideIn 0.3s ease-in-out;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#dataList li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 #dataList li button {
@@ -113,22 +126,36 @@ button:hover {
     border: none;
     color: #fff;
     padding: 0.5rem 0.75rem;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-left: 0.5rem;
+    font-weight: 500;
 }
 
-#dataList li button:hover {
+#dataList li button.edit {
+    background: #6a11cb;
+}
+
+#dataList li button.edit:hover {
+    background: #2575fc;
+    transform: translateY(-2px);
+}
+
+#dataList li button.delete:hover {
     background: #e60000;
+    transform: translateY(-2px);
 }
 
 
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateY(-20px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -140,5 +167,25 @@ button:hover {
     to {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        padding: 0.6rem;
+    }
+
+    button {
+        padding: 0.6rem;
     }
 }
