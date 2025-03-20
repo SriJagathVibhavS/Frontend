@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Data Entry</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div id="loginPage" class="page">
+        <div class="container">
+            <h1>Login</h1>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+
+                <button type="submit">Login</button>
+            </form>
+            <p id="errorMessage" class="error"></p>
+        </div>
+    </div>
+
+    
+    <div id="dataPage" class="page hidden">
+        <div class="container">
+            <h1>Data Entry Form</h1>
+            <form id="dataForm">
+                <label for="dataInput">Enter Data:</label>
+                <input type="text" id="dataInput" name="dataInput" required placeholder="Enter your data">
+                <button type="submit">Add Data</button>
+            </form>
+
+            <h2>Data List</h2>
+            <ul id="dataList"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
